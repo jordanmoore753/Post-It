@@ -1,0 +1,20 @@
+<div class="well">
+  <%= render 'shared/errors', object: @user %>
+  <%= form_for @user do |f| %>
+    <div class="control-group">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div class="control-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <% if @user.new_record? %>
+      <div class="control-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    <% end %>
+    <%= f.submit (@user.new_record? ? 'Register' : 'Update Profile'), class: 'btn btn-success' %>
+  <% end %>  
+</div>
